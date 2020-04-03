@@ -49,7 +49,6 @@ import java.util.logging.Logger;
                 propertyValue = "java:module/jms/newsTopic"),
         @ActivationConfigProperty(propertyName = "destinationType",
                 propertyValue = "javax.jms.Topic")})
-@Startup
 public class MessageBean implements MessageListener {
 
     static final Logger logger = Logger.getLogger("MessageBean");
