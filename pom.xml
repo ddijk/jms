@@ -14,13 +14,9 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.glassfish.main.core/glassfish -->
-        <dependency>
-            <groupId>org.glassfish.main.common</groupId>
-            <artifactId>glassfish-naming</artifactId>
-            <version>4.1.1</version>
-            <scope>test</scope>
-        </dependency>
+
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

@@ -29,7 +29,7 @@ public class NewsController {
 
         final JMSProducer producer = jmsContext.createProducer();
 
-        producer.send(topic, "hallo:" + (topic != null));
+        producer.send(topic, "hallo:" + subject);
 
         System.out.println("succesvol verzonden");
 
