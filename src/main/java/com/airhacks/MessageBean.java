@@ -47,6 +47,8 @@ import java.util.logging.Logger;
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationLookup",
                 propertyValue = "java:module/jms/newsTopic"),
+        @ActivationConfigProperty(propertyName = "messageSelector",
+        propertyValue = "(NewsType = 'Sports') OR  (NewsType = 'Opinion')"),
         @ActivationConfigProperty(propertyName = "destinationType",
                 propertyValue = "javax.jms.Topic")})
 public class MessageBean implements MessageListener {
