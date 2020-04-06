@@ -2,9 +2,7 @@ package com.airhacks;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.jms.Destination;
-import javax.jms.JMSContext;
-import javax.jms.JMSProducer;
+import javax.jms.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -25,11 +23,23 @@ public class NewsController {
     javax.jms.ConnectionFactory connectionFactory;
 
     @GET
-    public String get(@QueryParam("subject") String subject) {
+    public String get(@QueryParam("subject") String subject) throws JMSException {
 
         final JMSProducer producer = jmsContext.createProducer();
 
-        producer.send(topic, "hallo:" + subject);
+        TextMessage msg = jmsContext.createTextMessage("hallo Sports 1:" );
+        msg.setStringProperty("NewsType", "Sports");
+
+        producer.send(topic, msg);
+
+        msg = jmsContext.createTextMessage("hallo Voetbal 2:" );
+        msg.setStringProperty("NewsType", "Voetbal");
+        producer.send(topic, msg);
+
+        msg = jmsContext.createTextMessage("hallo Opinion 3:" );
+        msg.setStringProperty("NewsType", "Opinion");
+        producer.send(topic, msg);
+
 
         System.out.println("succesvol verzonden");
 
